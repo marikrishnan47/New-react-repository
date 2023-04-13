@@ -1,45 +1,61 @@
-
+*{
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
   height: 100vh;
    width: 100%;
 }
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  width: 60%;
+}
+
+.login-con-1{
+  width: 45%;
+  height: 68vh;
+  background-image: url('image/login.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
 .login-con{
-  width: 30%;
+  width: 20%;
   font-size: 20px;
   padding: 20px;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-  background-color: #f51a3e;
-  color: #fff;
+
+  background-color: #ffffff;
+  color: #0e0e0e;
 }
  h1{
   letter-spacing: 2px;
   text-align: center;
+  color: #382b73;
 }
 
- input:focus{
+ .form .input:focus{
   outline: none !important;
   background: none;
   background: none;
 }
-.login-con input{
+ .input{
   background: none;
-  color: #fff !important;
-  margin: 20px 0;
-  padding: 10px 18px;
+  color: #3c3968 !important;
+  margin: 20px 0 !important;
   font-size: 18px;
   border: none;
-  border-bottom: solid 1px rgb(255, 255, 255);
 
 }
-.login-con .iconify{
+.first-icon{
   display: block;
-  position: relative; 
-  left: -4px;
-  top: -46px;
+  padding-top: 6px;
   
 }
 .Name{
@@ -53,15 +69,17 @@
   color:rgb(5, 5, 5);
 }
 .login-con button{
-  color: #fff !important;
-  width: 100%;
+   cursor: pointer;
+  display: block;
   margin: 10px 0;
+  padding-top: 20px;
   background: none;
-  padding:  10px 20px;
-  color: black;
+  color: #382b73;
+  font-weight: 700;
   font-size: 30px;
   letter-spacing: 1px;
   border: none;
+  text-shadow: #736a9b 0px 0px 3px ;
 }
 button:focus{
   
@@ -74,17 +92,29 @@ button:focus{
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   background-color: #f51a3e;
-  color: #fff;
+  color: #fff !important;
   
 }
-.form input{
+
+
+.css-1x51dt5-MuiInputBase-input-MuiInput-input {
+    color:#141414 !important;
+     
+ 
+    
+}
+/* label[data-shrink=false]+.MuiInputBase-formControl .css-1x51dt5-MuiInputBase-input-MuiInput-input {
+  margin-top: 20px;
+} */
+/* .css-1x51dt5-MuiInputBase-input-MuiInput-input {
+  
+} */
+.form .input{
   color: #fff !important;
   background: none;
-  margin: 20px 0;
-  padding: 10px 18px;
   font-size: 18px;
   border: none;
-  border-bottom: solid 1px   #fff;
+  
 }
 .form .iconify{
   display: block;
@@ -119,7 +149,7 @@ button:focus{
 }
 .home-con{
   height: 40vh;
-  width: 27%;
+  width: 50%;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   padding: 10px;
   font-size: 20px;

@@ -3,7 +3,8 @@
 import React,{ useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SateContext } from '../Context/SateContext'
-
+import { TextField } from '@mui/material'
+import LoginIcon from '@mui/icons-material/Login';
 export const Login = () => {
 
 
@@ -49,6 +50,10 @@ export const Login = () => {
     let Member=conMember.find((get)=>get.name === taskName && get.password === taskDesp) 
     if(Member){
         Navigate("/home")
+        { localStorage.setItem('isLoggedIn',JSON.stringify(true))
+        dispatch({type:'LOGIN',payload:true
+        
+        })}
     }
     else{
         setemptyInp(true)
@@ -58,28 +63,28 @@ export const Login = () => {
 
   return (
     <div className='container'>
+      <h1>Login</h1>
+        <div className='row'>
+          
         <div className='login-con'>
             
-            <h1>Login</h1>
-            <form onSubmit={handlSubmit} >
-                 
-                <div>
-                <input  name="name"  placeholder='userName' onChange={inputSubmit}/>
-                <span className="iconify" data-icon="ic:baseline-person"></span>
-                </div>
-                {taskName === "" && inputEmp &&<div className='Name'> Username is required</div>}
-                <br/>
+            
+          <form onSubmit={handlSubmit} >                               
+                <TextField className='input' id="standard-basic" label="userName" name="name" variant="standard" onChange={inputSubmit} /> 
+                {taskName === "" && inputEmp &&<div className='Name'> Username is required</div>}  <br/> 
 
-                 <div>
-                 <input type="password" name="password"placeholder='password' onChange={inputSubmit}/>
-                 <span className="iconify" data-icon="material-symbols:lock-open-outline-rounded"></span>
-                 </div>
+               <TextField className='input' name="password" id="standard-basic" label="password"                
+               variant="standard" onChange={inputSubmit} />                
                  {taskDesp===""&& inputEmp &&<div className={'password'}>password is required</div>}
-                 <br/>
-                 <button> login </button>
+                 
+                 <button > login <LoginIcon className='first-icon' /> </button>
                  {emptyInp &&<div className='btn'>not found</div>}
-            </form>    
-            <button onClick={()=>dispatch({type:'LOGIN',payload:true})}> Chnage </button>
+          </form>    
+            
+        </div>
+        <div className='login-con-1'>
+
+        </div>
         </div>
     </div>
   )

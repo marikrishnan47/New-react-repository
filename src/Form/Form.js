@@ -1,6 +1,7 @@
 import React,{ useContext, useState } from 'react'
 import {  useNavigate } from 'react-router-dom'
 import { SateContext } from '../Context/SateContext';
+import { Button, Checkbox, FormControlLabel, TextField } from '@mui/material';
 
 let tasks = [];
 // localStorage.setItem('edit',JSON.stringify([]))
@@ -18,7 +19,7 @@ export const Form = () => {
 
   const Context=useContext(SateContext)
    console.log(Context);
-
+ tasks=state.forms;
 //  let editItems=JSON.parse(localStorage.getItem('edit'))
 const inputSubmit=(get)=>{
   
@@ -45,7 +46,7 @@ const checked=(e)=>{
       description : inputPas,
       Answer:isComp
     }
-    Context.state.forms.push(data)
+   // Context.state.forms.push(data)
     if(state.edit?.lenght>0){
       tasks[state.edit[1]]=data;
       dispatch({
@@ -56,6 +57,10 @@ const checked=(e)=>{
   else{
     tasks.push(data)
   }
+  dispatch({
+    type : "ARRAY",
+    payload : tasks
+  })
     // if(editItems?.length>0){
     //   inputAns[editItems[1]]=data;
     //   localStorage.removeItem('edit');
@@ -76,24 +81,25 @@ const checked=(e)=>{
  }
   return (
     <div className='container'>
-      <div className='form'>
+       <div className="row">
+       <div className='form'>
         <h1>Form</h1>
         <form onSubmit={handlSubmit} >
-           <div>
-          <input name="name" placeholder='userName' onChange={inputSubmit} value={inputName}/><br/>
-          <span className="iconify" data-icon="ic:baseline-person"></span>
-
-          </div>
+        <TextField className='input' id="standard-basic" label="userName" name="name" variant="standard" onChange={inputSubmit} value={inputName} /> 
           {inputName === "" && inputEmp &&<div className='Name'> Username is required</div>}
-            <div>
-          <input name="pas" type='text' placeholder='description' onChange={inputSubmit2} value={inputPas}/><br/>
-          <span className="iconify" data-icon="cil:description"></span>
-          </div>
+            
+            <TextField className='input' name="pas" type='text' id="standard-basic" label="description"  variant="standard" onChange={inputSubmit2} value={inputPas} /> 
           {inputPas===""&& inputEmp &&<div className='description'>description is required</div>}
+          <FormControlLabel control={<Checkbox  />} label="Checkbox" className='checkbox' type='checkbox' id="click" onChange={checked}/>
+ 
+        
+          <Button color="secondary" type="submit"value={'Go To Home page'} className='inputlast'>submit</Button>
 
-          <input className='checkbox' type='checkbox' id="click" onChange={checked}/> <label htmlFor="click">checkbox</label><br/>
-          <input onClick={()=>dispatch({type:"ARRAY",payload:tasks})} type="submit"value={'Go To Home page'} className='inputlast'/>
         </form>
+      </div>
+       <div className="login-con-1">
+
+        </div>
       </div>
     </div>
   )
