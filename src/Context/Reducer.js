@@ -1,5 +1,5 @@
 export const initialstate={
-    isLoggedIn:false,
+    isLoggedIn:JSON.parse(localStorage.getItem('isLoggedIn')) || false,
     forms:[],
     edit:[],
 }
